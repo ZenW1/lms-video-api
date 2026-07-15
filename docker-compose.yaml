@@ -1,0 +1,20 @@
+networks:
+  sb14net:
+    external: true
+volumes:
+  sb13-vol:
+services:
+  postgres:
+    image: postgres:18.4
+    container_name: sb14-postgres
+    restart: always
+    environment:
+      POSTGRES_USER: david
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: sb14_db
+    ports:
+      - "1300:5432"
+    networks:
+      - sb14-net
+    volumes:
+      - sb14-vol:/var/lib/postgresql/18/docker
