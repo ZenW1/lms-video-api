@@ -103,7 +103,6 @@ public class EnrollmentServiceImpl implements EnrollmentService {
         EnrollmentEntity enrollment = enrollmentRepository.findById(id)
                 .orElseThrow(() -> new GlobalException("Enrollment not found with id: " + id));
 
-        // Enrollment doesn't have an isDeleted flag in the entity, so we hard delete.
         enrollmentRepository.delete(enrollment);
     }
 

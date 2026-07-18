@@ -76,7 +76,6 @@ public class StudentProfileServiceImpl implements StudentProfileService {
         StudentProfileEntity student = studentRepository.findById(id)
                 .orElseThrow(() -> new GlobalException("Student not found with id: " + id));
         
-        // Student profiles don't have an isDeleted flag in the entity, so we hard delete.
         studentRepository.delete(student);
     }
 
